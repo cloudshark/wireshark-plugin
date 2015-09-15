@@ -1,0 +1,49 @@
+--[[
+This is the configuration file for the CloudShark plugin. 
+Visit https://appliance.cloudshark.org for additional help.
+--]]
+
+-- To disable the CloudShark plugin,
+-- set the CLOUDSHARK_ENABLE setting to "n".
+CLOUDSHARK_ENABLE = "y"
+
+-- URL:  The CloudShark appliance URL
+CLOUDSHARK_URL = "https://www.cloudshark.org"
+
+-- API:  The API token to use
+CLOUDSHARK_API_KEY = "<INSERT API TOKEN HERE>"
+
+-- Tags: A comma separated list of tags
+CLOUDSHARK_TAGS = ""
+
+-- User: The user name (only if login is required)
+CLOUDSHARK_USER = ""
+
+-- Password: The password (only if login is required)
+CLOUDSHARK_PASSWORD = ""
+
+-- Tshark: To enable tshark support for the plugin,
+-- set the CLOUDSHARK_TSHARK setting to "y" for auto
+-- mode or "prompt" for prompting mode.
+CLOUDSHARK_TSHARK = "n"
+
+-- Curl: The path to curl if non-standard
+-- Paths should be formatted with [[path]]
+-- Remove the -- below to uncomment
+-- CLOUDSHARK_CURL = [[C:\example\curl.exe]]
+
+-- CA Bundle: The path to an alternative CA bundle file in pem format
+-- Paths should be formatted with [[path]]
+-- Remove the -- below to uncomment
+-- CLOUDSHARK_CABUNDLE = [[C:\example\curl-ca-bundle.crt]]
+
+-- Certificate verification: You can disable certificate verification
+-- by setting CLOUDSHARK_CERT_VERIFY to "n". This will use
+-- curl's --insecure option.
+-- CLOUDSHARK_CERT_VERIFY = "n"
+
+-- When used from Wireshark, the plugin will attempt
+-- to open a brower and load CloudShark after a capture
+-- is uploaded. You can set CLOUDSHARK_OPEN_BROWSER to
+-- "n" to disable this behavior.
+CLOUDSHARK_OPEN_BROWSER = "y"
