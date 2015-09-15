@@ -227,7 +227,7 @@ mode unless the user specically enters "y" at the prompt.
 
 ``` text
 tshark -i eth0 -q -c 5 
-CloudShark plugin for WireShark (c) 2012
+CloudShark plugin for Wireshark (c) 2012
 Version 1.0 rev 136
 Developed by QA Cafe
 Capturing on eth0

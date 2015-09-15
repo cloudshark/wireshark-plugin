@@ -1,6 +1,6 @@
 --[[
  
-CloudShark Plugin for WireShark
+CloudShark Plugin for Wireshark
 Developed by QA Cafe, 2012-2015
 
 For additional help on using this plugin, please 
@@ -44,7 +44,7 @@ cloudshark_year = "2015"
 
 function cloudshark_about_win()
    cs_about_win = TextWindow.new("About CloudShark")
-   cs_about_win:append(string.format("CloudShark plugin for WireShark (c) %s\n", cloudshark_year))
+   cs_about_win:append(string.format("CloudShark plugin for Wireshark (c) %s\n", cloudshark_year))
    cs_about_win:append(string.format("Version %s\n", cloudshark_plugin_version))
    cs_about_win:append("Developed by QA Cafe\n")
    cs_about_win:append("\n")
@@ -973,7 +973,7 @@ if gui_enabled() == true then
 
    cdebug("Running in Wireshark GUI mode")
 
-   -- Add new menu items to WireShark under the Tools menu
+   -- Add new menu items to Wireshark under the Tools menu
    register_menu( "CloudShark/About",        cloudshark_about_win,   MENU_TOOLS_UNSORTED)
    register_menu( "CloudShark/Preferences",  cloudshark_prefs_win,   MENU_TOOLS_UNSORTED)
    register_menu( "CloudShark/Upload",       cloudshark_dialog_win,  MENU_TOOLS_UNSORTED)
@@ -1003,7 +1003,7 @@ else
 
    -- display version info
    dofile(string.format("%s/version.lua", cs_log_dir()))
-   print(string.format("CloudShark plugin for WireShark (c) %s", cloudshark_year))
+   print(string.format("CloudShark plugin for Wireshark (c) %s", cloudshark_year))
    print(string.format("Version %s", cloudshark_plugin_version))
    print("Developed by QA Cafe")
 
