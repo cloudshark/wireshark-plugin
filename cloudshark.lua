@@ -1,7 +1,7 @@
 --[[
  
 CloudShark Plugin for WireShark
-Developed by QA Cafe, 2012-2013
+Developed by QA Cafe, 2012-2015
 
 For additional help on using this plugin, please 
 contact support@cloudshark.org.
