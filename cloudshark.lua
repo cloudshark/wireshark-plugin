@@ -1002,7 +1002,6 @@ else
    end
 
    -- display version info
-   dofile(string.format("%s/version.lua", cs_log_dir()))
    print(string.format("CloudShark plugin for Wireshark (c) %s", cloudshark_year))
    print(string.format("Version %s", cloudshark_plugin_version))
    print("Developed by QA Cafe")
