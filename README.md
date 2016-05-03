@@ -43,7 +43,7 @@ Alternatively you can download the [zip file](https://github.com/cloudshark/Wire
 and extract this into your Wireshark plugins folder.
 
 After cloning the git repository or unzipping the archive you must copy the
-default configuration, `cloudshark_init.default` to `cloudshark_init.lua`.
+default configuration, `cloudshark_init.default`, to `cloudshark_init.lua`.
 
 **Running as root or admin:** If you are running Wireshark as root or 
 admin, you may need to enable support for Lua scripts by modifying your 
