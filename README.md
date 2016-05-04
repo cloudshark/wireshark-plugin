@@ -16,24 +16,34 @@ enabled. Systems must also contain a recent version of [curl](http://curl.haxx.s
 
 ## Installation
 
-To install the CloudShark Wireshark plugin clone this repository into your
-plugins folder into a directory named `cloudshark`. For example on Linux or OS X:
+The plugin should be installed in your Wireshark plugin directory.
 
+You can find your Wireshark plugin directory by opening Wireshark and
+going to `Help > About Wireshark` and clicking on the `Folders` tab. 
+The `Personal Plugins` directory should be used to install the
+CloudShark Wireshark plugin to allow users to configure their own API
+Tokens.
+
+You can install the CloudShark Wireshark plugin by cloning this
+repository into a directory named `cloudshark` in your Wireshark plugins
+folder.
+
+To do that on Unix-like systems, such as Linux, OS X, \*BSD, Solaris,
+AIX, and HP-UX, from the command line:
+
+1. If the path displayed as your `Personal Plugins` directory doesn't
+exist, create it with `mkdir -p <path>`.
+2. Change to that directory with `cd <path>`
+3. Clone the repository with
 ```
-# cd ~/.wireshark/plugins
-# git clone https://github.com/cloudshark/wireshark-plugin.git cloudshark
+git clone https://github.com/cloudshark/wireshark-plugin.git cloudshark
 ```
 
 Alternatively you can download the [zip file](https://github.com/cloudshark/Wireshark-plugin/archive/master.zip)
-and extract this into your Wireshark plugin directory.
-
-You can find your Wireshark plugin directory by opening Wireshark and going to
-`Help > About Wireshark` and clicking on the `Folders` tab. The `Personal Plugins`
-directory should be used to install the CloudShark Wireshark plugin to allow
-users to configure their own API Tokens.
+and extract this into your Wireshark plugins folder.
 
 After cloning the git repository or unzipping the archive you must copy the
-default configuration, `cloudshark_init.default` to, `cloudshark_init.lua`.
+default configuration, `cloudshark_init.default`, to `cloudshark_init.lua`.
 
 **Running as root or admin:** If you are running Wireshark as root or 
 admin, you may need to enable support for Lua scripts by modifying your 
@@ -50,15 +60,15 @@ for the user running Wireshark.
 
 ## Configuration
 
-By default, the plugin is configured to work with 
-<https://www.cloudshark.org>. You must modify the plugin configuration file 
-to work with your own CloudShark appliance. The configuration file is 
-installed as ~/.wireshark/plugins/cloudshark/cloudshark_init.lua. The 
-configuration file can be edited right through Wireshark by selecting 
-**Tools > CloudShark > Preferences**. This menu option will open the 
-current configuration file in a text window that you may edit. After 
-modifying the configuration file, be sure to save it before closing the 
-window.
+By default, the plugin is configured to work with
+<https://www.cloudshark.org>.  You must modify the plugin configuration
+file to work with your own CloudShark appliance.  The configuration file
+is installed as `cloudshark_init.lua` in the `cloudshark` directory in
+your Wireshark plugin directory.  The configuration file can be edited
+right through Wireshark by selecting **Tools > CloudShark >
+Preferences**.  This menu option will open the current configuration
+file in a text window that you may edit.  After modifying the
+configuration file, be sure to save it before closing the window.
 
 If you are using <https://www.cloudshark.org> you will have to modify
 the `CLOUDSHARK_API_KEY` to match your API token. This can be found by
@@ -260,11 +270,11 @@ Safari is recommended.
 
 ## Disk Space
 
-The plugin uses the ~/.wireshark/plugin/cloudshark directory for 
-working disk space. You must have enough disk space in this directory to 
-support your captures. A good rule of thumb is to allocate three times as 
-much disk space as your largest desired capture file. The plugin manages 
-the capture files automatically.
+The plugin uses the `cloudshark` directory in your Wireshark plugin
+directory for working disk space.  You must have enough disk space in
+this directory to support your captures.  A good rule of thumb is to
+allocate three times as much disk space as your largest desired capture
+file.  The plugin manages the capture files automatically.
 
 ## Errors
 
@@ -285,6 +295,6 @@ plugin to work with a specific CloudShark appliance.
 
 ## Uninstall
 
-The plugin can be removed by deleting the `~/.wireshark/plugin/cloudshark`
-directory.
+The plugin can be removed by deleting the `cloudshark` directory in your
+Wireshark plugin directory.
 
