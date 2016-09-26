@@ -182,7 +182,11 @@ end
 --
 
 function cs_log_dir()
-   return persconffile_path('plugins/cloudshark')
+   if Dir.exists(Dir.personal_plugins_path() .. "/cloudshark") then
+      return (Dir.personal_plugins_path() .. "/cloudshark")
+    else
+      return (Dir.global_plugins_path() .. "/cloudshark")
+    end
 end
 
 --
