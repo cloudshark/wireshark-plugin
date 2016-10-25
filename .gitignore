@@ -1,1 +1,3 @@
-cloudshark_init.lua
+cloudshark.config
+*.swp
+*.cap

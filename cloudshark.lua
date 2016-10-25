@@ -1,7 +1,7 @@
 --[[
  
 CloudShark Plugin for Wireshark
-Developed by QA Cafe, 2012-2015
+Developed by QA Cafe, 2012-2016
 
 For additional help on using this plugin, please 
 contact support@cloudshark.org.
@@ -36,7 +36,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 --
 
 cloudshark_plugin_version = "1.0.4"
-cloudshark_year = "2015"
+cloudshark_year = "2016"
+
+--
+-- Display version info for Wireshark
+--
+local plugin_info = {
+  version = cloudshark_plugin_version,
+  author = "CloudShark",
+  repository = "https://github.com/cloudshark/wireshark-plugin"
+}
+
+set_plugin_info(plugin_info)
 
 --
 -- Create the About CloudShark window.
@@ -194,7 +205,7 @@ end
 --
 
 function cs_config_name()
-   local configFile = string.format("%s/cloudshark_init.lua", cs_log_dir())
+   local configFile = string.format("%s/cloudshark.config", cs_log_dir())
    return configFile
 end
 
