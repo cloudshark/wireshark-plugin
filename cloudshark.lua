@@ -65,7 +65,7 @@ function cloudshark_about_win()
    cs_about_win:append("the plugin configuration file at:\n\n")
    cs_about_win:append(cs_make_path( cs_config_name()  ))
    cs_about_win:append("\n")
-   cs_about_win:append("\nVisit http://appliance.cloudshark.org/ for more help.\n")
+   cs_about_win:append("\nVisit https://support.cloudshark.org/ for more help.\n")
    cs_about_win:append("\n")
 end
 
@@ -135,7 +135,7 @@ function cs_display_config_error(message)
     cs_display(cs_make_path( cs_config_name() ))
     cs_display("\n")
     cs_display("For more help on installing and configuring the CloudShark ")
-    cs_display("plugin, please visit:\n\nhttp://appliance.cloudshark.org\n")
+    cs_display("plugin, please visit:\n\nhttps://support.cloudshark.org\n")
     cs_display("\nOr contact support@cloudshark.org\n")
 end
 
@@ -940,7 +940,7 @@ function cloudshark_dialog_win()
             cs_win = TextWindow.new("CloudShark")	
             cs_win:append("Please create or load a capture file first!\n\n")
             cs_win:append("For more help on using the CloudShark plugin, ")
-            cs_win:append("please visit:\n\nhttp://appliance.cloudshark.org\n")
+            cs_win:append("please visit:\n\nhttps://support.cloudshark.org\n")
         else
 
            -- we have a capture file, so close it
@@ -996,6 +996,7 @@ end
 -- check if config exists and if not create it from default config
 
 if cs_file_exists(cs_config_name()) == false then
+  cdebug("Creating configuration file from default config.")
   defaultConfigFile = io.open(cs_default_config_name(), "r")
   defaultConfig = defaultConfigFile:read("*a")
   defaultConfigFile:close()
