@@ -210,6 +210,15 @@ function cs_config_name()
 end
 
 --
+-- Return the name of the default plugin configuration file
+--
+
+function cs_default_config_name()
+   local configFile = string.format("%s/cloudshark.default", cs_log_dir())
+   return configFile
+end
+
+--
 -- Load the CloudShark plugin configuration file.
 --
 
@@ -982,6 +991,18 @@ if CLOUDSHARK_ENABLE ~= nil and CLOUDSHARK_ENABLE == "n" then
 
    -- we don't want to run the plugin, just return
    return
+end
+
+-- check if config exists and if not create it from default config
+
+if cs_file_exists(cs_config_name()) == false then
+  defaultConfigFile = io.open(cs_default_config_name(), "r")
+  defaultConfig = defaultConfigFile:read("*a")
+  defaultConfigFile:close()
+
+  configFile = io.open(cs_config_name(), "w")
+  configFile:write(defaultConfig)
+  configFile:close()
 end
 
 if gui_enabled() == true then
