@@ -58,6 +58,14 @@ Rather than running as root or admin, try
 [enabling capture privileges](http://wiki.wireshark.org/CaptureSetup/CapturePrivileges)
 for the user running Wireshark.
 
+## Installing cURL on Windows
+
+The CloudShark plugin requires [cURL](https://curl.haxx.se/) which is not 
+installed by default on Windows. For an easy to use installation program use
+[this installer](http://www.confusedbycode.com/curl/). Note that you may have
+to logout and log back into Windows after running this installer for the plugin
+to work properly.
+
 ## Configuration
 
 By default, the plugin is configured to work with
