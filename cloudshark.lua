@@ -906,12 +906,12 @@ function cs_check_config()
      cs_load_config()
 
      -- check required parameters
-     if CLOUDSHARK_URL == nill or CLOUDSHARK_URL == "" then
+     if CLOUDSHARK_URL == nil or CLOUDSHARK_URL == "" then
         error("CLOUDSHARK_URL is missing or not set")
      end
 
      -- must have an API key
-     if CLOUDSHARK_API_KEY == nill or CLOUDSHARK_API_KEY == "" then
+     if CLOUDSHARK_API_KEY == nil or CLOUDSHARK_API_KEY == "" or CLOUDSHARK_API_KEY == "<INSERT API TOKEN HERE>" then
         error("CLOUDSHARK_API_KEY is missing or not set")
      end
 
