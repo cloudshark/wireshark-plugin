@@ -1,7 +1,7 @@
 --[[
  
 CloudShark Plugin for Wireshark
-Developed by QA Cafe, 2012-2015
+Developed by QA Cafe, 2012-2016
 
 For additional help on using this plugin, please 
 contact support@cloudshark.org.
@@ -36,7 +36,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 --
 
 cloudshark_plugin_version = "1.0.4"
-cloudshark_year = "2015"
+cloudshark_year = "2016"
+
+--
+-- Display version info for Wireshark
+--
+local plugin_info = {
+  version = cloudshark_plugin_version,
+  author = "CloudShark",
+  repository = "https://github.com/cloudshark/wireshark-plugin"
+}
+
+set_plugin_info(plugin_info)
 
 --
 -- Create the About CloudShark window.
@@ -54,7 +65,7 @@ function cloudshark_about_win()
    cs_about_win:append("the plugin configuration file at:\n\n")
    cs_about_win:append(cs_make_path( cs_config_name()  ))
    cs_about_win:append("\n")
-   cs_about_win:append("\nVisit http://appliance.cloudshark.org/ for more help.\n")
+   cs_about_win:append("\nVisit https://support.cloudshark.org/ for more help.\n")
    cs_about_win:append("\n")
 end
 
@@ -124,7 +135,7 @@ function cs_display_config_error(message)
     cs_display(cs_make_path( cs_config_name() ))
     cs_display("\n")
     cs_display("For more help on installing and configuring the CloudShark ")
-    cs_display("plugin, please visit:\n\nhttp://appliance.cloudshark.org\n")
+    cs_display("plugin, please visit:\n\nhttps://support.cloudshark.org\n")
     cs_display("\nOr contact support@cloudshark.org\n")
 end
 
@@ -194,7 +205,16 @@ end
 --
 
 function cs_config_name()
-   local configFile = string.format("%s/cloudshark_init.lua", cs_log_dir())
+   local configFile = string.format("%s/cloudshark.config", cs_log_dir())
+   return configFile
+end
+
+--
+-- Return the name of the default plugin configuration file
+--
+
+function cs_default_config_name()
+   local configFile = string.format("%s/cloudshark.default", cs_log_dir())
    return configFile
 end
 
@@ -886,12 +906,12 @@ function cs_check_config()
      cs_load_config()
 
      -- check required parameters
-     if CLOUDSHARK_URL == nill or CLOUDSHARK_URL == "" then
+     if CLOUDSHARK_URL == nil or CLOUDSHARK_URL == "" then
         error("CLOUDSHARK_URL is missing or not set")
      end
 
      -- must have an API key
-     if CLOUDSHARK_API_KEY == nill or CLOUDSHARK_API_KEY == "" then
+     if CLOUDSHARK_API_KEY == nil or CLOUDSHARK_API_KEY == "" or CLOUDSHARK_API_KEY == "<INSERT API TOKEN HERE>" then
         error("CLOUDSHARK_API_KEY is missing or not set")
      end
 
@@ -920,7 +940,7 @@ function cloudshark_dialog_win()
             cs_win = TextWindow.new("CloudShark")	
             cs_win:append("Please create or load a capture file first!\n\n")
             cs_win:append("For more help on using the CloudShark plugin, ")
-            cs_win:append("please visit:\n\nhttp://appliance.cloudshark.org\n")
+            cs_win:append("please visit:\n\nhttps://support.cloudshark.org\n")
         else
 
            -- we have a capture file, so close it
@@ -971,6 +991,19 @@ if CLOUDSHARK_ENABLE ~= nil and CLOUDSHARK_ENABLE == "n" then
 
    -- we don't want to run the plugin, just return
    return
+end
+
+-- check if config exists and if not create it from default config
+
+if cs_file_exists(cs_config_name()) == false then
+  cdebug("Creating configuration file from default config.")
+  defaultConfigFile = io.open(cs_default_config_name(), "r")
+  defaultConfig = defaultConfigFile:read("*a")
+  defaultConfigFile:close()
+
+  configFile = io.open(cs_config_name(), "w")
+  configFile:write(defaultConfig)
+  configFile:close()
 end
 
 if gui_enabled() == true then
