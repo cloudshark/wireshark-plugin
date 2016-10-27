@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -- Lua functions for the CloudShark Plugin.
 --
 
-cloudshark_plugin_version = "1.0.4"
+cloudshark_plugin_version = "1.0.5"
 cloudshark_year = "2016"
 
 --
