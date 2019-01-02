@@ -16,11 +16,11 @@ enabled. Systems must also contain a recent version of [curl](http://curl.haxx.s
 
 ## Installation
 
-The plugin should be installed in your Wireshark plugin directory.
+The plugin should be installed in your Wireshark Lua plugin directory.
 
 You can find your Wireshark plugin directory by opening Wireshark and
 going to `Help > About Wireshark` and clicking on the `Folders` tab. 
-The `Personal Plugins` directory should be used to install the
+The `Personal Lua Plugins` directory should be used to install the
 CloudShark Wireshark plugin to allow users to configure their own API
 Tokens.
 
@@ -31,7 +31,7 @@ folder.
 To do that on Unix-like systems, such as Linux, OS X, \*BSD, Solaris,
 AIX, and HP-UX, from the command line:
 
-1. If the path displayed as your `Personal Plugins` directory doesn't
+1. If the path displayed as your `Personal Lua Plugins` directory doesn't
 exist, create it with `mkdir -p <path>`.
 2. Change to that directory with `cd <path>`
 3. Clone the repository with
@@ -40,7 +40,8 @@ git clone https://github.com/cloudshark/wireshark-plugin.git cloudshark
 ```
 
 Alternatively you can download the [zip file](https://github.com/cloudshark/Wireshark-plugin/archive/master.zip)
-and extract this into your Wireshark plugins folder.
+and extract the contents of the `wireshark-plugin-master` folder into a folder
+named `cloudshark` in your Wireshark Personal Lua plugins directory.
 
 After cloning the git repository or unzipping the archive you must copy the
 default configuration, `cloudshark.default`, to `cloudshark.config`.
