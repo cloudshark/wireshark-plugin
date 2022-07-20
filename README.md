@@ -43,6 +43,10 @@ Alternatively you can download the [zip file](https://github.com/cloudshark/Wire
 and extract the contents of the `wireshark-plugin-master` folder into a folder
 named `cloudshark` in your Wireshark Personal Lua plugins directory.
 
+> **Note**
+> 
+> You **must** name the folder that the plugin resides in "cloudshark".
+
 After cloning the git repository or unzipping the archive you must copy the
 default configuration, `cloudshark.default`, to `cloudshark.config`.
 
